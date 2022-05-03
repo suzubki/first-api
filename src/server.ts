@@ -9,7 +9,7 @@ interface Props {
 }
 
 app.get("/", (_req: Request, _res: Response) => {
-    _res.send("Hola mundo weon");
+    _res.send("Hola mundo");
 });
 
 app.get(
