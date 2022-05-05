@@ -1,7 +1,9 @@
-import crud from './crud';
-import peliculas from './peliculas';
+import crud from "./crud";
+import peliculas from "./peliculas";
+import mascotas from "./mascotas";
 
 export default {
-  crud,
-  peliculas
+    crud,
+    peliculas,
+    mascotas,
 };

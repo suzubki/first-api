@@ -1,27 +1,34 @@
 import { Request, Response, Router } from "express";
+import {
+    validarPeliculaPorActor,
+    validarPeliculaPorCategoria,
+    validarPeliculaPorCiudad,
+} from "../../middlewares/peliculas-validator";
 
+const router = Router();
 
-const router = Router()
+router.post(
+    "/actor",
+    validarPeliculaPorActor,
+    (_req: Request, _res: Response) => {
+        _res.send(_req.body);
+    }
+);
 
-router.get("", (_req: Request, _res: Response) => {
-  _res.send("Aquí todas las películas");
-});
+router.post(
+    "/category",
+    validarPeliculaPorCategoria,
+    (_req: Request, _res: Response) => {
+        _res.send("Película por id");
+    }
+);
 
-router.get("/:id", (_req: Request, _res: Response) => {
-  _res.send("Película por id");
-});
+router.post(
+    "/city",
+    validarPeliculaPorCiudad,
+    (_req: Request, _res: Response) => {
+        _res.send("Agregando película...");
+    }
+);
 
-router.post("", (_req: Request, _res: Response) => {
-  _res.send("Agregando película...");
-});
-
-router.put("/:id", (_req: Request, _res: Response) => {
-  _res.send("Modificando película...");
-});
-
-router.delete("/:id", (_req: Request, _res: Response) => {
-  _res.send("Eliminando película...");
-});
-
-
-export default router
+export default router;
